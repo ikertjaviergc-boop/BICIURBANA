@@ -1,0 +1,460 @@
+/* VARIABLES DE COLOR */
+:root {
+    --bg-dark: #0f0f0f;
+    --bg-card: #1a1a1a;
+    --orange-primary: #ff9100;
+    --orange-hover: #e07f00;
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+    --error-color: #ff4a4a;
+    --success-color: #2ed573;
+}
+
+/* ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* NAVBAR */
+header {
+    background-color: rgba(15, 15, 15, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--orange-primary);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+    border-radius: 8px;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span span {
+    color: var(--orange-primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--orange-primary);
+}
+
+/* HERO SECTION */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(15, 15, 15, 1)), url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=1200') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+/* BOTONES */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--orange-primary);
+    color: var(--bg-dark);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--orange-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-white);
+    border: 2px solid var(--text-white);
+}
+
+.btn-secondary:hover {
+    border-color: var(--orange-primary);
+    color: var(--orange-primary);
+    transform: translateY(-2px);
+}
+
+/* BARRA DE BÚSQUEDA */
+.search-container {
+    display: flex;
+    max-width: 600px;
+    margin: 20px auto 30px auto;
+    gap: 10px;
+}
+
+.search-container input {
+    flex: 1;
+    background-color: var(--bg-card);
+    border: 1px solid #333;
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: var(--text-white);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-container input:focus {
+    border-color: var(--orange-primary);
+}
+
+/* CATALOGO */
+.catalog {
+    padding: 60px 0;
+}
+
+.catalog h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background-color: var(--bg-card);
+    color: var(--text-white);
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background-color: var(--orange-primary);
+    color: var(--bg-dark);
+    border-color: var(--orange-primary);
+}
+
+/* CONTENEDORES DE PESTAÑAS (TABS) */
+.panel-contenido {
+    display: none;
+}
+
+.panel-contenido.activo {
+    display: block;
+}
+
+/* PRODUCT GRID */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #222;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--orange-primary);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.tag-renta { background-color: #00bcd4; color: #fff; }
+.tag-venta { background-color: var(--orange-primary); color: #000; }
+
+.product-info h3 {
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--orange-primary);
+    margin-bottom: 15px;
+}
+
+/* NUEVA ENVOLTURA INTERNA PARA TAREAS */
+.todo-wrapper {
+    background-color: var(--bg-card);
+    border: 1px solid #222;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.todo-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.todo-form {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.todo-form .input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.todo-form input {
+    background-color: var(--bg-dark);
+    border: 1px solid #333;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--text-white);
+    outline: none;
+}
+
+.todo-form input:focus {
+    border-color: var(--orange-primary);
+}
+
+.todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.todo-item {
+    background-color: var(--bg-dark);
+    border: 1px solid #222;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.todo-clickable {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.todo-item.completada .todo-clickable span {
+    text-decoration: line-through;
+    color: var(--text-gray);
+    opacity: 0.6;
+}
+
+/* BOTÓN ELIMINAR */
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+}
+
+/* SECCIÓN LOGIN / REGISTRO */
+.auth-section {
+    padding: 60px 0 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-card {
+    background-color: var(--bg-card);
+    border: 1px solid #222;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: var(--orange-primary);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.form-group input {
+    background-color: var(--bg-dark);
+    border: 1px solid #333;
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--text-white);
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--orange-primary);
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-gray);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.error-msg {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    display: none;
+}
+
+.success-box {
+    margin-top: 20px;
+    background-color: rgba(46, 213, 115, 0.2);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+}
+
+footer {
+    background-color: #050505;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #222;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
